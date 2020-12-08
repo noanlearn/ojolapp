@@ -4,7 +4,11 @@ import {ill_welcomeAuth} from '../../assets';
 import {colors} from '../../utils';
 import ActionButton from './ActionButton';
 
-const WelcomeAuth = () => {
+const WelcomeAuth = ({navigation}) => {
+  const handleGoTo = (page) => {
+    navigation.navigate(page);
+  };
+
   return (
     <View style={styles.wrapper.page}>
       <Image source={ill_welcomeAuth} style={styles.wrapper.illustration} />
@@ -12,10 +16,12 @@ const WelcomeAuth = () => {
       <ActionButton
         desc="Silahkan masuk, jika Anda sudah memiliki akun"
         title="Masuk"
+        onPress={() => handleGoTo('Login')}
       />
       <ActionButton
         desc="atau silahkan daftar, jika Anda belum memiliki akun"
         title="Daftar"
+        onPress={() => handleGoTo('Register')}
       />
     </View>
   );
